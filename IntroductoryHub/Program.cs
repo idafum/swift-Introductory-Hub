@@ -9,6 +9,8 @@ class Program
 {
     const string companyName = "Swift";
 
+    static string[] menuOptions = ["About", "Explore Swift Products", "Exit"];
+
     static void Main(string[] args)
     {
         Console.Clear(); //Clear the console
@@ -20,10 +22,23 @@ class Program
     {
         DisplayWelcomeMessage();
         PrintBreakLine();
+
+        DisplayMenuOptions();
+        PrintBreakLine();
     }
 
     /// <summary>
-    /// Display Welcome message
+    /// display numbered menu options
+    /// </summary>
+    static void DisplayMenuOptions()
+    {
+        for(int i = 0; i < menuOptions.Length; i++)
+        {
+            Console.WriteLine($"({i})\t{menuOptions[i]}");
+        }
+    }
+    /// <summary>
+    /// display welcome message
     /// </summary>
     static void DisplayWelcomeMessage()
     {
@@ -34,7 +49,7 @@ class Program
     }
 
     /// <summary>
-    /// Print break line characters
+    /// print break line characters
     /// </summary>
     static void PrintBreakLine()
     {
@@ -45,7 +60,6 @@ class Program
         {
             Console.Write(character);
         }
-
         Console.WriteLine();
     }
 
