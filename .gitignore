@@ -1,0 +1,34 @@
+# Build Folders
+IntroductoryHub/bin/
+IntroductoryHub/obj/
+
+# IDE Settings
+.vs/
+*.vscode/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+
+# Logs
+*.log
+*.tlog
+
+# Temporaty files
+*.tmp
+*.temp
+
+# Configurations
+appsettings.json
+appsettings.*.json
+
+# Other
+*.ncrunch*
+*.coverage
+
+# Build Artifacts
+*.dll
+*.exe
+*.pdb
+*.cache
