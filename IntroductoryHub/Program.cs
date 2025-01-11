@@ -16,6 +16,9 @@ class Program
         Console.Clear(); //Clear the console
 
         Intro();
+        
+        int selectedMenu = MenuNavigation();
+        Console.WriteLine($"You chose the {menuOptions[selectedMenu]} menu...");
     }
 
     static void Intro()
@@ -27,6 +30,39 @@ class Program
         PrintBreakLine();
     }
 
+    /// <summary>
+    /// prompt user for menu selection until menu selection is valid. 
+    /// </summary>
+    /// <returns>the selected menu number for navigation</returns>
+    static int MenuNavigation()
+    {
+        bool validNumber = false;
+        int chosenMenu = -1;
+        string? userInput;
+        do
+        {
+            Console.WriteLine("Choose a menu option (Enter menu number): ");
+            userInput = Console.ReadLine();
+
+            validNumber = int.TryParse(userInput, out chosenMenu);
+
+            if(validNumber)
+            {
+                if(chosenMenu < 0 || chosenMenu >= menuOptions.Length) //Invalid menu number
+                {
+                    Console.WriteLine("\tInvaid Menu");
+                    validNumber = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("\tInvalid");
+            }
+        } while (validNumber == false);
+
+        
+        return chosenMenu;
+    }
     /// <summary>
     /// display numbered menu options
     /// </summary>
