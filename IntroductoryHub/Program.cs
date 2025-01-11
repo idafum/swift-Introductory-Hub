@@ -3,6 +3,8 @@
     The "Swift Console Applicaiton" serves as an introcutory hub for the swift ecosystem
 */
 
+using System.Data;
+
 class Program
 {
     const string companyName = "Swift";
@@ -11,8 +13,12 @@ class Program
     {
         Console.Clear(); //Clear the console
 
-        DisplayWelcomeMessage();
+        Intro();
+    }
 
+    static void Intro()
+    {
+        DisplayWelcomeMessage();
         PrintBreakLine();
     }
 
@@ -27,6 +33,9 @@ class Program
         Console.WriteLine();
     }
 
+    /// <summary>
+    /// Print break line characters
+    /// </summary>
     static void PrintBreakLine()
     {
         char character = '-';

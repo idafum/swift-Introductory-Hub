@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntroductoryHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f35cc4e1106de9256e0b93ea2f04e51307cf3af4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4b0bf6ff7a29e854d2931139f6febb3fcf615b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntroductoryHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntroductoryHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
