@@ -3,8 +3,6 @@
     The "Swift Console Applicaiton" serves as an introcutory hub for the swift ecosystem
 */
 
-using System.Data;
-
 class Program
 {
     const string companyName = "Swift";
@@ -15,19 +13,67 @@ class Program
     {
         Console.Clear(); //Clear the console
 
+        //Display Intro
         Intro();
-        
+
+        //Get user selected menu Number
         int selectedMenu = MenuNavigation();
-        Console.WriteLine($"You chose the {menuOptions[selectedMenu]} menu...");
+
+        //Display Menu
+        ShowMenuContent(selectedMenu);
     }
 
     static void Intro()
     {
         DisplayWelcomeMessage();
         PrintBreakLine();
-
         DisplayMenuOptions();
         PrintBreakLine();
+    }
+
+    /// <summary>
+    /// use the ReadAFle method to display
+    /// user selected menu option
+    /// </summary>
+    /// <param name="selectedMenu">user selected menu</param>
+    static void ShowMenuContent(int selectedMenu)
+    {
+        switch (selectedMenu)
+        {
+            case 0:
+                ReadAFile("documents/about.txt");
+                break;
+            case 1:
+                ReadAFile("document/project");
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+    }
+    /// <summary>
+    /// reads a file line by line and print to console if it exists
+    /// </summary>
+    /// <param name="filePath"></param>
+    static void ReadAFile(string filePath)
+    {
+        //Check if file exist
+        if (File.Exists(filePath))
+        {
+            using (StreamReader reader = File.OpenText(filePath))
+            {
+                string? s = "";
+                while ((s = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Development in Progress...");
+        }
     }
 
     /// <summary>
@@ -46,9 +92,9 @@ class Program
 
             validNumber = int.TryParse(userInput, out chosenMenu);
 
-            if(validNumber)
+            if (validNumber)
             {
-                if(chosenMenu < 0 || chosenMenu >= menuOptions.Length) //Invalid menu number
+                if (chosenMenu < 0 || chosenMenu >= menuOptions.Length) //Invalid menu number
                 {
                     Console.WriteLine("\tInvaid Menu");
                     validNumber = false;
@@ -60,7 +106,7 @@ class Program
             }
         } while (validNumber == false);
 
-        
+
         return chosenMenu;
     }
     /// <summary>
@@ -68,7 +114,7 @@ class Program
     /// </summary>
     static void DisplayMenuOptions()
     {
-        for(int i = 0; i < menuOptions.Length; i++)
+        for (int i = 0; i < menuOptions.Length; i++)
         {
             Console.WriteLine($"({i})\t{menuOptions[i]}");
         }
@@ -92,7 +138,7 @@ class Program
         char character = '-';
         int length = 40;
 
-        for(int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++)
         {
             Console.Write(character);
         }
