@@ -1,0 +1,9 @@
+About
+...
+I, Somto, a .NET developer, created the Swift Ecosystem to document my growth
+and skills as I work towards becoming a full-stack developer.
+
+The journey begins with the Introductory Hub, a console application that lays 
+the foundation for exploring core .NET concepts. Future stages will showcase
+backend development with ASP.NET Core, frontend development with ASP.NET MVC, 
+and mobile solutions using .NET MAUI
