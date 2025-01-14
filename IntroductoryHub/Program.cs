@@ -3,6 +3,8 @@
     The "Swift Console Applicaiton" serves as an introcutory hub for the swift ecosystem
 */
 
+using System.ComponentModel;
+
 class Program
 {
     const string companyName = "Swift";
@@ -26,15 +28,12 @@ class Program
 
         } while (isValidMenuOption == false);
 
-        //As user to choose a menu option until valid
-        //Once valid, show the section
-        //Show an option to return to main menu for options
 
-        // //Get user selected menu Number
-        // int selectedMenu = MenuNavigation();
+        //Now we open the file of the selectedMenu
+        ShowMenuContent(selectedMenu);
+        PrintBreakLine();
+        BackToMenuPrompt();
 
-        // //Display Menu
-        // ShowMenuContent(selectedMenu);
     }
 
     static void Intro()
@@ -46,12 +45,27 @@ class Program
     }
 
     /// <summary>
+    /// Prompt user to return back to menu
+    /// </summary>
+    static void BackToMenuPrompt()
+    {
+        string? userInput;
+        do
+        {
+            Console.Write("Please enter 'nice' to return to main menu: ");
+            userInput = Console.ReadLine();
+        } while (userInput != null && userInput.ToLower() != "nice");
+
+
+    }
+    /// <summary>
     /// use the ReadAFle method to display
     /// user selected menu option
     /// </summary>
     /// <param name="selectedMenu">user selected menu</param>
     static void ShowMenuContent(int selectedMenu)
     {
+        Console.Clear();
         switch (selectedMenu)
         {
             case 0:
