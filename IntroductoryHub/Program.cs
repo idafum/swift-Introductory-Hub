@@ -18,20 +18,10 @@ class Program
         //Display Intro
         Intro();
 
-        bool isValidMenuOption = false;
-        string? userInput;
-        do
-        {
-            Console.Write("Select a menu (by number): ");
-            userInput = Console.ReadLine();
-            isValidMenuOption = MenuOptionValidator(userInput, 0, menuOptions.Length);
-
-        } while (isValidMenuOption == false);
-
-
         //Now we open the file of the selectedMenu
         ShowMenuContent(selectedMenu);
         PrintBreakLine();
+
         BackToMenuPrompt();
 
     }
@@ -56,7 +46,8 @@ class Program
             userInput = Console.ReadLine();
         } while (userInput != null && userInput.ToLower() != "nice");
 
-
+        Console.Clear();
+        Intro();
     }
     /// <summary>
     /// use the ReadAFle method to display
@@ -143,6 +134,16 @@ class Program
         {
             Console.WriteLine($"({i})\t{menuOptions[i]}");
         }
+
+        bool isValidMenuOption = false;
+        string? userInput;
+        do
+        {
+            Console.Write("Select a menu (by number): ");
+            userInput = Console.ReadLine();
+            isValidMenuOption = MenuOptionValidator(userInput, 0, menuOptions.Length);
+
+        } while (isValidMenuOption == false);
     }
 
     /// <summary>
