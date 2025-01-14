@@ -3,11 +3,13 @@
     The "Swift Console Applicaiton" serves as an introcutory hub for the swift ecosystem
 */
 
+using System.ComponentModel;
+
 class Program
 {
     const string companyName = "Swift";
-
     static string[] menuOptions = ["About", "Explore Swift Products", "Exit"];
+    static int selectedMenu = -1;
 
     static void Main(string[] args)
     {
@@ -16,11 +18,12 @@ class Program
         //Display Intro
         Intro();
 
-        //Get user selected menu Number
-        int selectedMenu = MenuNavigation();
-
-        //Display Menu
+        //Now we open the file of the selectedMenu
         ShowMenuContent(selectedMenu);
+        PrintBreakLine();
+
+        BackToMenuPrompt();
+
     }
 
     static void Intro()
@@ -32,12 +35,28 @@ class Program
     }
 
     /// <summary>
+    /// Prompt user to return back to menu
+    /// </summary>
+    static void BackToMenuPrompt()
+    {
+        string? userInput;
+        do
+        {
+            Console.Write("Please enter 'nice' to return to main menu: ");
+            userInput = Console.ReadLine();
+        } while (userInput != null && userInput.ToLower() != "nice");
+
+        Console.Clear();
+        Intro();
+    }
+    /// <summary>
     /// use the ReadAFle method to display
     /// user selected menu option
     /// </summary>
     /// <param name="selectedMenu">user selected menu</param>
     static void ShowMenuContent(int selectedMenu)
     {
+        Console.Clear();
         switch (selectedMenu)
         {
             case 0:
@@ -51,6 +70,8 @@ class Program
             default:
                 break;
         }
+
+        //Provide User option to return to main menu
     }
     /// <summary>
     /// reads a file line by line and print to console if it exists
@@ -77,38 +98,33 @@ class Program
     }
 
     /// <summary>
-    /// prompt user for menu selection until menu selection is valid. 
+    /// validate user selected menu option
     /// </summary>
-    /// <returns>the selected menu number for navigation</returns>
-    static int MenuNavigation()
+    /// <param name="userInput">user selection</param>
+    /// <param name="lower">Lower bound for current menu option</param>
+    /// <param name="upper">Upper bound for current menu option</param>
+    /// <returns>False is validation fails</returns>
+    static bool MenuOptionValidator(string? userInput, int lower, int upper)
     {
-        bool validNumber = false;
-        int chosenMenu = -1;
-        string? userInput;
-        do
+        bool result = false;
+
+        if (int.TryParse(userInput, out selectedMenu))
         {
-            Console.WriteLine("Choose a menu option (Enter menu number): ");
-            userInput = Console.ReadLine();
-
-            validNumber = int.TryParse(userInput, out chosenMenu);
-
-            if (validNumber)
+            //Check menu range
+            if (selectedMenu < lower || selectedMenu >= upper)
             {
-                if (chosenMenu < 0 || chosenMenu >= menuOptions.Length) //Invalid menu number
-                {
-                    Console.WriteLine("\tInvaid Menu");
-                    validNumber = false;
-                }
+                Console.WriteLine("Menu: out of range");
+                return false;
             }
             else
             {
-                Console.WriteLine("\tInvalid");
+                return true;
             }
-        } while (validNumber == false);
-
-
-        return chosenMenu;
+        }
+        Console.WriteLine("Invalid Input");
+        return result;
     }
+
     /// <summary>
     /// display numbered menu options
     /// </summary>
@@ -118,7 +134,18 @@ class Program
         {
             Console.WriteLine($"({i})\t{menuOptions[i]}");
         }
+
+        bool isValidMenuOption = false;
+        string? userInput;
+        do
+        {
+            Console.Write("Select a menu (by number): ");
+            userInput = Console.ReadLine();
+            isValidMenuOption = MenuOptionValidator(userInput, 0, menuOptions.Length);
+
+        } while (isValidMenuOption == false);
     }
+
     /// <summary>
     /// display welcome message
     /// </summary>
