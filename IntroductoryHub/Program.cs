@@ -10,51 +10,77 @@ class Program
     const string companyName = "Swift";
     static string[] menuOptions = ["About", "Explore Swift Products", "Exit"];
     static int selectedMenu = -1;
-
+    static bool isRunning = true;
     static void Main(string[] args)
     {
         Console.Clear(); //Clear the console
 
-        //Display Intro
         Intro();
-
-        //Now we open the file of the selectedMenu
-        ShowMenuContent(selectedMenu);
-        PrintBreakLine();
-
-        BackToMenuPrompt();
+        do
+        {
+            Core();
+        }
+        while (isRunning);
 
     }
+
+    static void Core()
+    {
+        //Display menu option
+        for (int i = 0; i < menuOptions.Length; i++)
+        {
+            Console.WriteLine($"({i})\t{menuOptions[i]}");
+        }
+
+        // 2 User Input -> Select menu to view or close
+        string? userInput = null;
+        bool isValidMenuOption = false;
+        do
+        {
+            Console.Write("Select a menu (by number): ");
+            userInput = Console.ReadLine();
+            isValidMenuOption = MenuOptionValidator(userInput, 0, menuOptions.Length);
+
+        } while (isValidMenuOption == false);
+
+        // 3 Display selected menu or exit
+        if (selectedMenu == 2)
+        {
+            //Implement exit
+            isRunning = false;
+            Console.Clear();
+
+            Console.WriteLine("I hope you enoyed Swift's Introductory Hub.");
+        }
+        else
+        {
+            DisplaySelectedMenu();
+
+            //Give user the option to exit. 
+            do
+            {
+                Console.Write("Please enter 'nice' to return to main menu: ");
+                userInput = Console.ReadLine();
+            } while (userInput != null && userInput.ToLower() != "nice");
+
+            Console.Clear();
+            Intro();
+        }
+    }
+
 
     static void Intro()
     {
         DisplayWelcomeMessage();
         PrintBreakLine();
-        DisplayMenuOptions();
-        PrintBreakLine();
     }
 
-    /// <summary>
-    /// Prompt user to return back to menu
-    /// </summary>
-    static void BackToMenuPrompt()
-    {
-        string? userInput;
-        do
-        {
-            Console.Write("Please enter 'nice' to return to main menu: ");
-            userInput = Console.ReadLine();
-        } while (userInput != null && userInput.ToLower() != "nice");
-
-        Console.Clear();
-        Intro();
-    }
     /// <summary>
     /// use the ReadAFle method to display
     /// user selected menu option
     /// </summary>
     /// <param name="selectedMenu">user selected menu</param>
-    static void ShowMenuContent(int selectedMenu)
+    static void DisplaySelectedMenu()
     {
         Console.Clear();
         switch (selectedMenu)
@@ -63,16 +89,15 @@ class Program
                 ReadAFile("documents/about.txt");
                 break;
             case 1:
-                ReadAFile("document/project");
+                ReadAFile("documents/project");
                 break;
             case 2:
                 break;
             default:
                 break;
         }
-
-        //Provide User option to return to main menu
     }
+
     /// <summary>
     /// reads a file line by line and print to console if it exists
     /// </summary>
@@ -123,27 +148,6 @@ class Program
         }
         Console.WriteLine("Invalid Input");
         return result;
-    }
-
-    /// <summary>
-    /// display numbered menu options
-    /// </summary>
-    static void DisplayMenuOptions()
-    {
-        for (int i = 0; i < menuOptions.Length; i++)
-        {
-            Console.WriteLine($"({i})\t{menuOptions[i]}");
-        }
-
-        bool isValidMenuOption = false;
-        string? userInput;
-        do
-        {
-            Console.Write("Select a menu (by number): ");
-            userInput = Console.ReadLine();
-            isValidMenuOption = MenuOptionValidator(userInput, 0, menuOptions.Length);
-
-        } while (isValidMenuOption == false);
     }
 
     /// <summary>
