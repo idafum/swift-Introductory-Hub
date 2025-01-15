@@ -1,0 +1,14 @@
+Projects
+...
+
+1. Swift Introductory Hub - Console Application
+    
+    Skills Highlighted by this application include:
+
+        Software Design Principles: Separation of concerns and modularity.
+                                    Adherence to Single Responsibility Principles
+
+        Programming Fundamentals:   Control flow, conditionals, input validation.
+                                    File I/O operations.
+
+        Problem Solving:            Algorithmic design for dynamic menu navigation and user interaction
