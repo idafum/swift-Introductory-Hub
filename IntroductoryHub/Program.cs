@@ -1,9 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-/*
+﻿/*
     The "Swift Console Applicaiton" serves as an introcutory hub for the swift ecosystem
 */
-
-using System.ComponentModel;
 
 class Program
 {
@@ -13,7 +10,7 @@ class Program
     static bool isRunning = true;
     static void Main(string[] args)
     {
-        Console.Clear(); //Clear the console
+        Console.Clear();
 
         Intro();
         do
@@ -24,6 +21,9 @@ class Program
 
     }
 
+    /// <summary>
+    /// Implement the Introductory Hub's algorithm.
+    /// </summary>
     static void Core()
     {
         //Display menu option
@@ -50,15 +50,16 @@ class Program
             isRunning = false;
             Console.Clear();
 
-            Console.WriteLine("I hope you enoyed Swift's Introductory Hub.");
+            Console.WriteLine("I hope you enjoyed Swift's Introductory Hub.");
         }
         else
         {
             DisplaySelectedMenu();
 
-            //Give user the option to exit. 
+            //Prompt user to return to main menu 
             do
             {
+                Console.WriteLine();
                 Console.Write("Please enter 'nice' to return to main menu: ");
                 userInput = Console.ReadLine();
             } while (userInput != null && userInput.ToLower() != "nice");
@@ -67,7 +68,6 @@ class Program
             Intro();
         }
     }
-
 
     static void Intro()
     {
@@ -89,9 +89,7 @@ class Program
                 ReadAFile("documents/about.txt");
                 break;
             case 1:
-                ReadAFile("documents/project");
-                break;
-            case 2:
+                ReadAFile("documents/projects.txt");
                 break;
             default:
                 break;
