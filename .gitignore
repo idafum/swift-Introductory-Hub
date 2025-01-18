@@ -32,3 +32,6 @@ appsettings.*.json
 *.exe
 *.pdb
 *.cache
+
+# Published output
+/publish/
