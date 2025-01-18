@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "+BUCX+BFQGk=",
+  "dgSpecHash": "SDVNSsv49Wk=",
   "success": true,
   "projectFilePath": "/Users/somto/Desktop/Swift Dotnet/SwiftConsoleApplication/swift-intro-console/IntroductoryHub/IntroductoryHub.csproj",
   "expectedPackageFiles": [
     "/Users/somto/.nuget/packages/microsoft.net.illink.tasks/9.0.0/microsoft.net.illink.tasks.9.0.0.nupkg.sha512",
-    "/Users/somto/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/9.0.0/microsoft.netcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
-    "/Users/somto/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/9.0.0/microsoft.aspnetcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.netcore.app.runtime.win-x64/9.0.0/microsoft.netcore.app.runtime.win-x64.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/9.0.0/microsoft.aspnetcore.app.runtime.win-x64.9.0.0.nupkg.sha512",
     "/Users/somto/.nuget/packages/microsoft.netcore.app.crossgen2.osx-arm64/9.0.0/microsoft.netcore.app.crossgen2.osx-arm64.9.0.0.nupkg.sha512",
-    "/Users/somto/.nuget/packages/microsoft.netcore.app.host.linux-x64/9.0.0/microsoft.netcore.app.host.linux-x64.9.0.0.nupkg.sha512"
+    "/Users/somto/.nuget/packages/microsoft.netcore.app.host.win-x64/9.0.0/microsoft.netcore.app.host.win-x64.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }

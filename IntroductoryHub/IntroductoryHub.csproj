@@ -8,8 +8,16 @@
 
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
+
+  <ItemGroup>
+  <Content Include="documents\**\*">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+  </Content>
+</ItemGroup>
+
 </Project>
