@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "rO7lBErUIxQ=",
+  "dgSpecHash": "+BUCX+BFQGk=",
   "success": true,
   "projectFilePath": "/Users/somto/Desktop/Swift Dotnet/SwiftConsoleApplication/swift-intro-console/IntroductoryHub/IntroductoryHub.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/somto/.nuget/packages/microsoft.net.illink.tasks/9.0.0/microsoft.net.illink.tasks.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/9.0.0/microsoft.netcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/9.0.0/microsoft.aspnetcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.netcore.app.crossgen2.osx-arm64/9.0.0/microsoft.netcore.app.crossgen2.osx-arm64.9.0.0.nupkg.sha512",
+    "/Users/somto/.nuget/packages/microsoft.netcore.app.host.linux-x64/9.0.0/microsoft.netcore.app.host.linux-x64.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
