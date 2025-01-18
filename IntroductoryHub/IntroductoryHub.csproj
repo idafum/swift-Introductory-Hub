@@ -8,15 +8,8 @@
 
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+    <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
-
-  <!-- <Target Name="PublishAll" AfterTargets="Build">
-    <Exec Command = "dotnet publish -c Release -r win-x64 -o ./publish/win-x64"/>
-    <Exec Command = "dotnet publish -c Release -r linux-x64 -o ./publish/linux-x64"/>
-    <Exec Command = "dotnet publish -c Release -r osx-x64 -o ./publish/osx-arm64"/>
-  </Target> -->
-
 </Project>
